@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quizz/questao.dart';
 import 'package:quizz/resposta.dart';
+import 'package:quizz/resultado.dart';
 import './questao.dart';
 
 main(){
@@ -48,14 +49,15 @@ class _PerguntaAppState extends State<PerguntaApp>{
           title:const Center(child: Text("Perguntas")),
           backgroundColor: Colors.blueAccent,          
           titleTextStyle:const TextStyle(
-            color: Colors.white),
+            color: Colors.white
+          ),
         ),
         body: temPerguntaSelecionada ? Column(
           children: [
             Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
             ...respostas.map((texto)=>Resposta(texto,_responder))
           ],
-        ) : null,
+        ) : Resultado(),
       ),
     );
   }
